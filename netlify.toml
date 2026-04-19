@@ -1,0 +1,44 @@
+[dev]
+command = "npm run dev"
+targetPort = 3000
+port = 8888
+
+[functions]
+
+  [functions.emails]
+  included_files = [
+    "./emails/**"
+  ]
+
+[build]
+command = "npm ci --include=dev && npm run build"
+publish = "dist/client"
+
+[[headers]]
+for = "/api/*"
+
+  [headers.values]
+  Cache-Control = "private, no-store, no-cache, max-age=0, must-revalidate"
+  Pragma = "no-cache"
+  Expires = "0"
+  Vary = "Cookie"
+
+[context]
+
+  [context.production]
+
+    [context.production.functions]
+
+      [context.production.functions.emails]
+      included_files = [
+        "./emails/**"
+      ]
+
+  [context.master]
+
+    [context.master.functions]
+
+      [context.master.functions.emails]
+      included_files = [
+        "./emails/**"
+      ]
