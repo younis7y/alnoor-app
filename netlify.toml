@@ -4,7 +4,6 @@ targetPort = 3000
 port = 8888
 
 [functions]
-
   [functions.emails]
   included_files = [
     "./emails/**"
@@ -22,22 +21,12 @@ for = "/api/*"
   Expires = "0"
   Vary = "Cookie"
 
-[context]
+[context.production.functions.emails]
+included_files = [
+  "./emails/**"
+]
 
-  [context.production]
-
-    [context.production.functions]
-
-      [context.production.functions.emails]
-      included_files = [
-        "./emails/**"
-      ]
-
-  [context.master]
-
-    [context.master.functions]
-
-      [context.master.functions.emails]
-      included_files = [
-        "./emails/**"
-      ]
+[context.main.functions.emails]
+included_files = [
+  "./emails/**"
+]
