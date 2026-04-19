@@ -11,8 +11,7 @@ port = 8888
   ]
 
 [build]
-command = "npm ci --include=dev && npm run build"
-publish = "dist/client"
+publish = "."
 
 [[headers]]
 for = "/api/*"
