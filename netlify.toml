@@ -10,8 +10,11 @@ port = 8888
   ]
 
 [build]
-command = "npm install"
-publish = "."
+command = "npm install --legacy-peer-deps && npm run build"
+publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "18"
 
 [[headers]]
 for = "/api/*"
