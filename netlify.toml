@@ -10,7 +10,8 @@ port = 8888
   ]
 
 [build]
-publish = "."
+  command = "npm run build"
+  publish = "dist"
 
 [[headers]]
 for = "/api/*"
